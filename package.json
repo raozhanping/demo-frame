@@ -3,5 +3,10 @@
   "version": "1.0.0",
   "description": "to show more demo",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "apiai": "^4.0.3",
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  }
 }
