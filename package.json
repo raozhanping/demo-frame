@@ -1,0 +1,7 @@
+{
+  "name": "demo-frame",
+  "version": "1.0.0",
+  "description": "to show more demo",
+  "main": "index.js",
+  "license": "MIT"
+}
