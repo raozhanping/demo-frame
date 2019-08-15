@@ -1,7 +1,7 @@
 {
   "packages": [
     "packages/*",
-    "vue-demo/*",
+    "vue-demo",
     "web-speech-ai"
   ],
   "version": "0.0.0"

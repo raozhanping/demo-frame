@@ -9,6 +9,9 @@
     "web-speech-ai",
     "mock-wx-template"
   ],
+  "scripts": {
+    "vue-demo": "lerna exec npm run serve --scope=vue-demo"
+  },
   "devDependencies": {
     "lerna": "^3.16.4"
   }
