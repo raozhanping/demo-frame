@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
-import Polyfil from './plugins/Polyfill'
+import Polyfil from './plugins/DynamicComponent'
 
 Vue.use(Polyfil)
 Vue.config.productionTip = false

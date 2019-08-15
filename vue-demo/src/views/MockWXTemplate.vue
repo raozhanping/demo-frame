@@ -1,8 +1,9 @@
 <template>
   <main class="mock-wx-template" ref="ddd">
-    <script type="text/x-template" ref="custome-name" id="custome-name" >
+    <script type="text/x-template" ref="custome-name" id="custome-name">
       `<span>自定义模板</span>
       <span>自定义模板...</span>`
+      {{data.number}}
     </script>
     <section>
       <button class="btn" @click="addField">增加data字段</button>
@@ -13,15 +14,28 @@
       <button class="btn" @click="data.number--">number--数据</button>
       <p><code>{{JSON.stringify(data, null, 2)}}</code></p>
       </section>
-    <textarea name="se-template" id="se-template" cols="50" rows="10" v-model="seTemplate">
-    </textarea>
+    <textarea name="se-template" id="se-template" cols="50" rows="10" v-model="seTemplate.seTemplate"></textarea>
 
-    <dynamic-component class="name" :se-template="seTemplate" :data="data"></dynamic-component>
+    <dynamic-component class="name" se-template-name="seTemplate" :se-template="seTemplate" :se-data="data"></dynamic-component>
   </main>
 </template>
 <script>
-// @ is an alias to /src
-// import Vue from 'vue'
+const seTemplate = {
+  seTemplate: `<p>自定义模板A</p>
+<p>{{JSON.stringify(seData)}}</p>
+<p>number: {{number}} ----- string: {{string}}</p>
+<p v-if="!toDelField">如果 toDelField 为假 显示</p>
+<ol>
+  <li @click="logThis" v-for="(item, index) in list">list-item: {{item}}---index: {{index}}</li>
+  <li @click="logThis" v-for="(item, index) in toDelField">to-del-item: {{item}}---index: {{index}}</li>
+</ol>
+<hr />
+<dynamic-component class="name" se-template-name="seTemplateB" :se-template="seTemplate" :se-data="list"></dynamic-component>
+`,
+  seTemplateB: `<p>自定义模板B</p>
+<p>{{JSON.stringify(seData)}}</p>
+`
+}
 
 export default {
   name: 'mock-wx-template',
@@ -30,20 +44,19 @@ export default {
       data: {
         number: 1,
         string: '1',
-        list: '1'.repeat(3).split('').map((_, index) => index),
+        list: '1'.repeat(1).split('').map((_, index) => index),
         object: {
           a: 1,
         },
         toDelField: null
       },
-      seTemplate: `<p>自定义模板</p>
-<p>{{JSON.stringify(data)}}</p>
-<p>number: {{number}} ----- string: {{string}}</p>
-<p v-if="!toDelField">如果 toDelField 为假 显示</p>
-<ol>
-  <li @click="logThis" v-for="(item, index) in list">list-item: {{item}}---index: {{index}}</li>
-  <li @click="logThis" v-for="(item, index) in toDelField">to-del-item: {{item}}---index: {{index}}</li>
-</ol>`
+      seTemplate
+    }
+  },
+  computed: {
+    changedTemplate: function() {
+      console.log(111, this.seTemplate)
+      return this.seTemplate
     }
   },
   methods: {
