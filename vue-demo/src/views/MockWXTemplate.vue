@@ -12,11 +12,12 @@
       <button class="btn" @click="popList">list 删除</button>
       <button class="btn" @click="data.number++">number++数据</button>
       <button class="btn" @click="data.number--">number--数据</button>
+      <button class="btn" @click="showwww">show www</button>
       <p><code>{{JSON.stringify(data, null, 2)}}</code></p>
       </section>
     <textarea name="se-template" id="se-template" cols="50" rows="10" v-model="seTemplate.seTemplate"></textarea>
 
-    <dynamic-component class="name" se-template-name="seTemplate" :se-template="seTemplate" :se-data="data"></dynamic-component>
+    <dynamic-component class="name" se-template-name="seTemplate" :se-template="seTemplate" :se-data="{...data}"></dynamic-component>
   </main>
 </template>
 <script>
@@ -29,8 +30,11 @@ const seTemplate = {
   <li @click="logThis" v-for="(item, index) in list">list-item: {{item}}---index: {{index}}</li>
   <li @click="logThis" v-for="(item, index) in toDelField">to-del-item: {{item}}---index: {{index}}</li>
 </ol>
+<div v-if="www">
+  <div>{{xxxx}}</div>
+</div>
 <hr />
-<dynamic-component class="name" se-template-name="seTemplateB" :se-template="seTemplate" :se-data="list"></dynamic-component>
+<dynamic-component class="name" se-template-name="seTemplateB" :se-template="seTemplate" :se-data="{list}"></dynamic-component>
 `,
   seTemplateB: `<p>自定义模板B</p>
 <p>{{JSON.stringify(seData)}}</p>
@@ -60,6 +64,12 @@ export default {
     }
   },
   methods: {
+    showwww: function() {
+      console.log(111)
+      this.data.www = true
+      this.$set(this.data, 'www', true)
+      console.log(this)
+    },
     addField: function() {
       this.$set(this.data, 'toDelField', [1, 2, 3])
     },

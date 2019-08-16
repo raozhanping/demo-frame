@@ -11,6 +11,7 @@ function install(Vue) {
   Vue.component('dynamicComponent', {
     mixins: [mixin],
     props: ['se-data', 'se-template', 'se-template-name'],
+    a: 222,
     data() {
       this.$identifier = Object.keys(this.seData)
       const result = Object.assign({}, {
@@ -18,6 +19,7 @@ function install(Vue) {
       })
       return result
     },
+    
     methods: {
       logThis: function () {
         console.log('dynamic component', this, this.$identifier)
@@ -27,7 +29,17 @@ function install(Vue) {
       const { propsData: { seTemplate, seTemplateName }, setRender } = this.$options
       setRender.call(this, seTemplate[seTemplateName])
     },
+    created() {
+      this.$options.a = 2
+    },
+    beforeMount() {
+      this.$options.b = 3
+    },
+    mounted() {
+      this.$options.c = 4
+    },
     beforeUpdate() {
+      console.log(111)
       this.$options.updateData.call(this)
     },
 

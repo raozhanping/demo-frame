@@ -13,6 +13,11 @@
     "vue-demo": "lerna exec npm run serve --scope=vue-demo"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
     "lerna": "^3.16.4"
+  },
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "create-react-app": "^3.1.1"
   }
 }

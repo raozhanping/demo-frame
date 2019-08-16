@@ -8,8 +8,12 @@ import Polyfil from './plugins/DynamicComponent'
 Vue.use(Polyfil)
 Vue.config.productionTip = false
 
-new Vue({
+const vm = new Vue({
+  a: 111,
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+
+console.log(vm)
+vm.$options.a = 11

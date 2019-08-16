@@ -1,0 +1,23 @@
+{
+  "name": "transform-jsx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel src/Index.jsx --out-dir dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-umd": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.5.5"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "react": "^16.9.0"
+  }
+}
