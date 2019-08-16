@@ -6,11 +6,15 @@
   "main": "index.js",
   "license": "MIT",
   "workspaces": [
+    "packages/*",
     "web-speech-ai",
-    "mock-wx-template"
+    "mock-wx-template",
+    "react-demo",
+    "vue-demo"
   ],
   "scripts": {
-    "vue-demo": "lerna exec npm run serve --scope=vue-demo"
+    "vue-demo": "lerna exec npm run serve --scope=vue-demo",
+    "react-demo": "lerna exec npm run serve --scope=react-demo"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",
