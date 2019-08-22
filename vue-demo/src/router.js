@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import MockWXTemplate from './views/MockWXTemplate.vue'
+import TestVueLoader from './views/TestVueLoader.vue'
 
 Vue.use(Router)
 
@@ -24,8 +25,13 @@ export default new Router({
     },
     {
       path: '/mock-wx-template',
-      name: '',
+      name: 'mock-wx-template',
       component: MockWXTemplate
+    },
+    {
+      path: '/test-vue-loader',
+      name: 'test-vue-loader',
+      component: TestVueLoader
     }
   ]
 })
