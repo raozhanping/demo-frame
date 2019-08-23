@@ -1,3 +1,0 @@
-[submodule "postcss-wxss"]
-	path = packages/postcss-wxss
-	url = git@github.com:raozhanping/postcss-plugin-boilerplate.git
