@@ -1,0 +1,3 @@
+[submodule "packages/postcss-plugin-boilerplate"]
+	path = packages/postcss-plugin-boilerplate
+	url = git@github.com:raozhanping/postcss-plugin-boilerplate.git
