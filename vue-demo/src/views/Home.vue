@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <button @click="addToDesktop">Add To Desktop</button>
+    <button v-show="false" @click="addToDesktop">Add To Desktop</button>
   </div>
 </template>
 

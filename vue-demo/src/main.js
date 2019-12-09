@@ -4,8 +4,10 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import Polyfil from './plugins/DynamicComponent'
+import TemplateDef from './plugins/TemplateDef'
 
 Vue.use(Polyfil)
+Vue.use(TemplateDef)
 Vue.config.productionTip = false
 
 const vm = new Vue({

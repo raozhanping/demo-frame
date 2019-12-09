@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Example from './views/Example.vue'
 import MockWXTemplate from './views/MockWXTemplate.vue'
 import TestVueLoader from './views/TestVueLoader.vue'
+// import LessDemo from './views/LessDemo/LessDemo.vue'
 
 Vue.use(Router)
-
-
-
 
 export default new Router({
   mode: 'history',
@@ -17,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/example',
+      name: 'example',
+      component: Example
     },
     {
       path: '/about',
@@ -35,6 +39,11 @@ export default new Router({
       path: '/test-vue-loader',
       name: 'test-vue-loader',
       component: TestVueLoader
-    }
+    },
+    // {
+    //   path: '/less-demo',
+    //   name: 'less-demo',
+    //   component: LessDemo
+    // }
   ]
 })

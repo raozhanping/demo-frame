@@ -1,5 +1,12 @@
+const webpack = require('webpack')
+
 module.exports = {
   runtimeCompiler: true,
+  configureWebpack: {
+    plugins: [new webpack.DefinePlugin({
+      'process.env.HOST': process.env.NODE_ENV === 'production' ? `'https://mp.360.cn'` : `''`
+    })]
+  },
   chainWebpack: config => {
     config.module
       .rule('vue')
@@ -19,5 +26,12 @@ module.exports = {
             }
           }
         })
+  },
+  devServer: {
+    proxy: {
+      '/data': {
+        target: 'https://mp.360.cn'
+      }
+    }
   }
 }
