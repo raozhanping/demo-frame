@@ -6,7 +6,7 @@ let stageSize = animationStage.getBoundingClientRect()
 let ballSize = proto.getBoundingClientRect()
 let maxHeight = Math.floor(stageSize.height - ballSize.height)
 const maxWidth = 87 // 100vw - width of square (3vw)
-const incrementor = 10
+const incrementor = 5
 const minimum = 10
 const subtract = document.querySelector(".subtract")
 const add = document.querySelector(".add")
@@ -61,12 +61,6 @@ document.querySelector(".stop").addEventListener("click", function(e) {
     e.target.textContent = "Stop";
     app.enableApp = true;
   }
-});
-
-document.querySelector(".optimize").addEventListener("click", function(e) {
-  app.optimizeLevel = e.target.dataset.level;
-  document.querySelector('button.active').classList.remove('active')
-  e.target.classList.add('active')
 });
 
 add.addEventListener("click", function(e) {
