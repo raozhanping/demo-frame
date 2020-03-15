@@ -4,10 +4,11 @@
 }
 body {
   padding: 2vh;
+  background-color: #000;
 }
 .stage {
   height: 80vh;
-  width: 90vw;
+  width: 98vw;
   position: relative;
   margin-top: 1em;
   border: 1px solid #000;
@@ -20,6 +21,11 @@ button {
   color: #fff;
   border: 1px solid black;
   border-radius: 4px;
+  cursor: pointer;
+  transition: boxShadow 1s;
+}
+button:hover {
+  box-shadow: inset 1px 1px 40px 0px #FF5722;
 }
 button.active {
   background-color: #fff;
@@ -29,8 +35,9 @@ button.active {
   opacity: 0.2;
 }
 .mover {
-  height: 5vw;
+  height: 4vw;
   position: absolute;
+  border-radius: 1000em;
   z-index: 0;
 }
 .optimize {

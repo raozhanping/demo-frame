@@ -20,7 +20,7 @@ app.enableApp = true;
 app.init = function() {
   if (movers) {
     stageSize = animationStage.getBoundingClientRect();
-    for (var i = 0; i < movers.length; i++) {
+    for (let i = 0; i < movers.length; i++) {
       animationStage.removeChild(movers[i]);
     }
     animationStage.appendChild(proto);
@@ -28,9 +28,9 @@ app.init = function() {
     animationStage.removeChild(proto);
     maxHeight = Math.floor(stageSize.height - ballSize.height);
   }
-  for (var i = 0; i < app.count; i++) {
-    var m = proto.cloneNode();
-    var top = Math.floor(Math.random() * maxHeight);
+  for (let i = 0; i < app.count; i++) {
+    const m = proto.cloneNode();
+    const top = Math.floor(Math.random() * maxHeight);
     if (top === maxHeight) {
       m.classList.add("up");
     } else {
@@ -45,12 +45,12 @@ app.init = function() {
 };
 
 app.update = function(timestamp) {
-  for (var i = 0; i < app.count; i++) {
-    var m = movers[i];
+  for (let i = 0; i < app.count; i++) {
+    const m = movers[i];
     // badly
     if (app.optimizeLevel === '0') {
-      app.clearOptimize3(m)
-      var pos = m.classList.contains("down")
+      app.resetAnimationBall(m)
+      let pos = m.classList.contains("down")
         ? m.offsetTop + distance
         : m.offsetTop - distance;
       if (pos < 0) pos = 0;
@@ -66,7 +66,7 @@ app.update = function(timestamp) {
         m.classList.add("up");
       }
     } else if(app.optimizeLevel === '1') {
-      app.clearOptimize3(m)
+      app.resetAnimationBall(m)
       let pos = parseInt(m._top);
       m.classList.contains("down") ? (pos += distance) : (pos -= distance);
       if (pos < 0) pos = 0;
@@ -101,7 +101,7 @@ app.update = function(timestamp) {
   frame = window.requestAnimationFrame(app.update);
 };
 
-app.clearOptimize3 = function(mover) {
+app.resetAnimationBall = function(mover) {
   mover.style.transform = ''
 }
 
@@ -142,22 +142,22 @@ subtract.addEventListener("click", function() {
 });
 
 function debounce(func, wait, immediate) {
-  var timeout;
+  let timeout;
   return function() {
-    var context = this,
+    const context = this,
       args = arguments;
-    var later = function() {
+    const later = function() {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
-    var callNow = immediate && !timeout;
+    const callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
   };
 }
 
-var onResize = debounce(function() {
+const onResize = debounce(function() {
   if (app.enableApp) {
     cancelAnimationFrame(frame);
     app.init();
