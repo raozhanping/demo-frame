@@ -1,4 +1,5 @@
-const app = {}
+import update from './update.js'
+
 const proto = document.querySelector('.proto')
 const animationStage = document.querySelector('.stage')
 let stageSize = animationStage.getBoundingClientRect()
@@ -6,32 +7,34 @@ let ballSize = proto.getBoundingClientRect()
 let maxHeight = Math.floor(stageSize.height - ballSize.height)
 const maxWidth = 87 // 100vw - width of square (3vw)
 const incrementor = 10
-const distance = 3
 const minimum = 10
 const subtract = document.querySelector(".subtract")
 const add = document.querySelector(".add")
 
-let movers, frame
-
-app.optimizeLevel = '0';
-app.count = minimum;
-app.enableApp = true;
+const app = {
+  optimizeLevel: '0',
+  count: minimum,
+  enableApp: true,
+  movers: null,
+  maxHeight
+}
+app.update = update.bind(app)
 
 app.init = function() {
-  if (movers) {
+  if (app.movers) {
     stageSize = animationStage.getBoundingClientRect();
-    for (let i = 0; i < movers.length; i++) {
-      animationStage.removeChild(movers[i]);
+    for (let i = 0; i < app.movers.length; i++) {
+      animationStage.removeChild(app.movers[i]);
     }
     animationStage.appendChild(proto);
     ballSize = proto.getBoundingClientRect();
     animationStage.removeChild(proto);
-    maxHeight = Math.floor(stageSize.height - ballSize.height);
+    app.maxHeight = Math.floor(stageSize.height - ballSize.height);
   }
   for (let i = 0; i < app.count; i++) {
     const m = proto.cloneNode();
-    const top = Math.floor(Math.random() * maxHeight);
-    if (top === maxHeight) {
+    const top = Math.floor(Math.random() * app.maxHeight);
+    if (top === app.maxHeight) {
       m.classList.add("up");
     } else {
       m.classList.add("down");
@@ -41,64 +44,7 @@ app.init = function() {
     m._top = top
     animationStage.appendChild(m);
   }
-  movers = document.querySelectorAll(".mover");
-};
-
-app.update = function(timestamp) {
-  for (let i = 0; i < app.count; i++) {
-    const m = movers[i];
-    // badly
-    if (app.optimizeLevel === '0') {
-      app.resetAnimationBall(m)
-      let pos = m.classList.contains("down")
-        ? m.offsetTop + distance
-        : m.offsetTop - distance;
-      if (pos < 0) pos = 0;
-      if (pos > maxHeight) pos = maxHeight;
-      m._top = pos
-      m.style.top = pos + "px";
-      if (m.offsetTop === 0) {
-        m.classList.remove("up");
-        m.classList.add("down");
-      }
-      if (m.offsetTop === maxHeight) {
-        m.classList.remove("down");
-        m.classList.add("up");
-      }
-    } else if(app.optimizeLevel === '1') {
-      app.resetAnimationBall(m)
-      let pos = parseInt(m._top);
-      m.classList.contains("down") ? (pos += distance) : (pos -= distance);
-      if (pos < 0) pos = 0;
-      if (pos > maxHeight) pos = maxHeight;
-        m._top = pos
-        m.style.top = pos + "px";
-      if (pos === 0) {
-        m.classList.remove("up");
-        m.classList.add("down");
-      }
-      if (pos === maxHeight) {
-        m.classList.remove("down");
-        m.classList.add("up");
-      }
-    } else {
-      let pos = parseInt(m._top);
-      m.classList.contains("down") ? (pos += distance) : (pos -= distance);
-      if (pos < 0) pos = 0;
-      if (pos > maxHeight) pos = maxHeight;
-      m._top = pos
-      m.style.transform = `translateY(${pos - m.style.top.slice(0, -2)}px)`
-      if (pos === 0) {
-        m.classList.remove("up");
-        m.classList.add("down");
-      }
-      if (pos === maxHeight) {
-        m.classList.remove("down");
-        m.classList.add("up");
-      }
-    }
-  }
-  frame = window.requestAnimationFrame(app.update);
+  app.movers = document.querySelectorAll(".mover");
 };
 
 app.resetAnimationBall = function(mover) {
@@ -107,11 +53,11 @@ app.resetAnimationBall = function(mover) {
 
 document.querySelector(".stop").addEventListener("click", function(e) {
   if (app.enableApp) {
-    cancelAnimationFrame(frame);
+    cancelAnimationFrame(app.frame);
     e.target.textContent = "Start";
     app.enableApp = false;
   } else {
-    frame = window.requestAnimationFrame(app.update);
+    app.frame = window.requestAnimationFrame(app.update);
     e.target.textContent = "Stop";
     app.enableApp = true;
   }
@@ -124,18 +70,18 @@ document.querySelector(".optimize").addEventListener("click", function(e) {
 });
 
 add.addEventListener("click", function(e) {
-  cancelAnimationFrame(frame);
+  cancelAnimationFrame(app.frame);
   app.count += incrementor;
   subtract.disabled = false;
   app.init();
-  frame = requestAnimationFrame(app.update);
+  app.frame = requestAnimationFrame(app.update);
 });
 
 subtract.addEventListener("click", function() {
-  cancelAnimationFrame(frame);
+  cancelAnimationFrame(app.frame);
   app.count -= incrementor;
   app.init();
-  frame = requestAnimationFrame(app.update);
+  app.frame = requestAnimationFrame(app.update);
   if (app.count === minimum) {
     subtract.disabled = true;
   }
@@ -159,9 +105,9 @@ function debounce(func, wait, immediate) {
 
 const onResize = debounce(function() {
   if (app.enableApp) {
-    cancelAnimationFrame(frame);
+    cancelAnimationFrame(app.frame);
     app.init();
-    frame = requestAnimationFrame(app.update);
+    app.frame = requestAnimationFrame(app.update);
   }
 }, 500);
 
@@ -172,5 +118,4 @@ subtract.textContent = "Subtract " + incrementor;
 document.body.removeChild(proto);
 proto.classList.remove(".proto");
 app.init();
-window.app = app;
-frame = window.requestAnimationFrame(app.update);
+app.frame = window.requestAnimationFrame(app.update);

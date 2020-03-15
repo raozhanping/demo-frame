@@ -22,7 +22,7 @@ button {
   border: 1px solid black;
   border-radius: 4px;
   cursor: pointer;
-  transition: boxShadow 1s;
+  transition: box-shadow 1s;
 }
 button:hover {
   box-shadow: inset 1px 1px 40px 0px #FF5722;
