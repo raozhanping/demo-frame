@@ -112,4 +112,5 @@ subtract.textContent = "Subtract " + incrementor;
 document.body.removeChild(proto);
 proto.classList.remove(".proto");
 app.init();
+window.app = app
 app.frame = window.requestAnimationFrame(app.update);

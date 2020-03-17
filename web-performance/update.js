@@ -5,18 +5,19 @@ export default function update() {
   for (let i = 0; i < count; i++) {
     const m = movers[i];
       resetAnimationBall(m)
+      const offsetTop = m._top
       let pos = m.classList.contains("down")
-        ? m.offsetTop + distance
-        : m.offsetTop - distance;
+        ? offsetTop + distance
+        : offsetTop - distance;
       if (pos < 0) pos = 0;
       if (pos > maxHeight) pos = maxHeight;
       m._top = pos
-      m.style.top = pos + "px";
-      if (m.offsetTop === 0) {
+      m.style.transform = `translateY(${pos - m.style.top.slice(0, -2)}px)`;
+      if (offsetTop === 0) {
         m.classList.remove("up");
         m.classList.add("down");
       }
-      if (m.offsetTop === maxHeight) {
+      if (offsetTop === maxHeight) {
         m.classList.remove("down");
         m.classList.add("up");
       }
