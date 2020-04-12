@@ -26,10 +26,16 @@
         :data="{ ...tData }"
       />
     </ol>
+    <button @click="toggleDemo">toggle demo</button>
+    <demo v-if="showDemo"/>
 </div>
 </template>
 <script>
+import HelloWorld from '../components/HelloWorld'
 export default {
+  components: {
+    demo: HelloWorld
+  },
   data() {
     return {
       staffA: 'staffA',
@@ -39,7 +45,14 @@ export default {
       tData: {
         staffA: '11',
         staffId: '22'
-      }
+      },
+      showDemo: true
+    }
+  },
+  methods: {
+    toggleDemo() {
+      this.$set(this, 'showDemo', !this.$data.showDemo)
+      console.log(this.$data)
     }
   },
   beforeCreate() {
