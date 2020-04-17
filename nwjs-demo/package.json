@@ -1,0 +1,10 @@
+{
+  "name": "nwjs-demo",
+  "version": "1.0.0",
+  "main": "index.html",
+  "author": "zhanping",
+  "license": "MIT",
+  "devDependencies": {
+    "nw-builder": "^3.5.7"
+  }
+}
