@@ -1,0 +1,10 @@
+{
+  "name": "electron-demo",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": "zhanping",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^8.2.3"
+  }
+}

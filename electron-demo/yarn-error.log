@@ -1,0 +1,42 @@
+Arguments: 
+  /home/zhanping/.nvm/versions/node/v10.16.0/bin/node /mnt/c/Program Files (x86)/Yarn/bin/yarn.js init 0y
+
+PATH: 
+  /home/zhanping/.nvm/versions/node/v10.16.0/bin:/home/zhanping/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/Docker/Docker/Resources/bin:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/Enterprise Vault/EVClient/x64/:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/raozhanping/AppData/Roaming/nvm:/mnt/c/Program Files/nodejs:/mnt/c/Program Files (x86)/Yarn/bin/:/mnt/c/Ruby26-x64/bin:/mnt/c/Users/raozhanping/.cargo/bin:/mnt/c/Users/raozhanping/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/raozhanping/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/raozhanping/AppData/Roaming/nvm:/mnt/c/Program Files/nodejs:/mnt/c/Users/raozhanping/AppData/Local/Yarn/bin:/mnt/c/devtool/nginx-1.16.1:/mnt/c/devtool/dig/bin:/mnt/c/OpenSSL-Win64/bin:/mnt/c/Users/raozhanping/AppData/Local/Programs/Fiddler:/mnt/c/Users/raozhanping/AppData/Local/hyper/app-3.0.2/resources/bin:/snap/bin:/home/zhanping/.yarn/bin
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/mnt/c/Program Files (x86)/Yarn/lib/cli.js:136724:13)
+      at Interface.emit (events.js:198:13)
+      at Interface._ttyWrite (readline.js:801:16)
+      at ReadStream.onkeypress (readline.js:184:10)
+      at ReadStream.emit (events.js:198:13)
+      at emitKeys (internal/readline.js:424:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1075:36)
+      at ReadStream.emit (events.js:198:13)
+      at addChunk (_stream_readable.js:288:12)
+
+npm manifest: 
+  {
+    "name": "electron-demo",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "zhanping",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
