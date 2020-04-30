@@ -1,0 +1,36 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js init -f
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\Enterprise Vault\EVClient\x64\;C:\Program Files\Git\cmd;C:\Users\raozhanping\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin\;C:\Go\bin;D:\Program\Dart\dart-sdk\bin;D:\Program\nwjs-v0.45.2-win-x64;D:\Program\depot_tools\;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Ruby26-x64\bin;C:\Users\raozhanping\.cargo\bin;C:\Users\raozhanping\AppData\Local\Microsoft\WindowsApps;C:\Users\raozhanping\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\raozhanping\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\raozhanping\AppData\Local\Yarn\bin;C:\devtool\nginx-1.16.1;C:\devtool\dig\bin;C:\OpenSSL-Win64\bin;C:\Users\raozhanping\AppData\Local\Programs\Fiddler;C:\devtool\GnuWin32\bin;C:\Users\raozhanping\AppData\Local\hyper\app-3.0.2\resources\bin;C:\Users\raozhanping\AppData\Local\GitHubDesktop\bin;C:\Users\raozhanping\go\bin;C:\Python27;D:\Program\flutter\bin;D:\Program\MinGW\bin;C:\Users\raozhanping\AppData\Local\bin\NASM;
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  12.9.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:136724:13)
+      at Interface.emit (events.js:209:13)
+      at Interface._ttyWrite (readline.js:887:16)
+      at ReadStream.onkeypress (readline.js:191:10)
+      at ReadStream.emit (events.js:209:13)
+      at emitKeys (internal/readline/utils.js:414:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1153:36)
+      at ReadStream.emit (events.js:209:13)
+      at addChunk (_stream_readable.js:305:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
