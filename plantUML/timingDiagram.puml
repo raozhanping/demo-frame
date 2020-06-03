@@ -1,0 +1,82 @@
+@startuml timing diagram
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Request
+
+Alice -> Bob: Another authentication Request
+Alice --> Bob: Another authentication Request
+@enduml
+
+@startuml actor
+actor Foo1
+boundary Foo2
+control Foo3
+entity Foo4
+database Foo5
+collections Foo6
+
+Foo1 -> Foo2 : To boundary
+Foo1 --> Foo3: To control
+Foo1 -> Foo4: To entity
+Foo1 -> Foo5: To database
+Foo1 -> Foo6: To collections
+
+@enduml
+
+@startuml use participant
+actor Bob #Red
+' The only difference between actor
+' and participant is the drawing
+participant Alice
+participant "I have a really\nlong name" as L #99FF99
+/'You can also declare:
+  participant L as "I have a really\nlong name" #99FFF99
+  '/
+Alice -> Bob: Authentication Request
+Bob -> Alice: Authentication Request
+Bob -> L: Log transaction
+
+@enduml
+
+@startuml use order
+participant Last order 30
+participant Middle order 20
+participant First order 10
+
+@enduml
+
+@startuml use exclude word
+Alice -> "Bob()": Hello
+"Bob()" -> "This is very\nlong" as Long
+' You can also declare:
+' "Bob()" -> Long as "This is very \nlong"
+Long --> "Bob()": ok
+
+@enduml
+
+@startuml send msg to self
+Alice -> Alice: This is a signal to self.\nIt also demonstrates\nmultiline \nnext
+@enduml
+
+@startuml arrow style
+Bob ->x Alice
+Bob -> Alice
+Bob ->> Alice
+Bob -\ Alice
+Bob \\- Alice
+Bob //-- Alice
+Bob ->o Alice
+Bob o\\-- Alice
+Bob <-> Alice
+Bob <->o Alice
+@enduml
+
+@startuml arrow color
+Bob -[#red]> Alice: hello
+Alice -[#0000FF]-> Bob: ok
+@enduml
+
+@startuml autonumber
+autonumber
+Bob -> Alice: Authentication Request
+Bob <- Alice: Authentication Response
+@enduml
