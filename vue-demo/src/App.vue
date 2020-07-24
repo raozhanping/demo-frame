@@ -1,14 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/example">Example</router-link>|
-      <router-link to="/about">About</router-link>|
-      <router-link to="/mock-wx-template">mock-wx-template</router-link>
-    </div>
-    <keep-alive>
-      <router-view />
-    </keep-alive>
+    <nav id="nav">
+      <router-link
+        :to="route.path"
+        v-for="route in $router.options.routes"
+        :key="route.path"
+      >{{route.name}}</router-link>
+    </nav>
+    <main id="content">
+      <keep-alive>
+        <router-view />
+      </keep-alive>
+    </main>
   </div>
 </template>
 <script>
@@ -21,20 +24,38 @@ export default {
 
 <style lang="scss">
 #app {
+  --primary-color: #42b983;
+  --border-color: #ebebeb;
+  --text-color: #2c3e50;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: var(--text-color);
 }
 #nav {
-  padding: 30px;
+  width: 20vw;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
   a {
+    width: 100%;
+    height: 40px;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--text-color);
+    &:hover {
+      color: var(--primary-color);
+    }
     &.router-link-exact-active {
-      color: #42b983;
+      color: var(--primary-color);
     }
   }
+}
+#content {
+  flex: 1;
 }
 </style>
