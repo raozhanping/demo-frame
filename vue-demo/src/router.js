@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import Router from './plugins/vue-router'
 import Home from './views/Home.vue'
 import Example from './views/Example'
 import MockWXTemplate from './views/MockWXTemplate'
