@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Example from './views/Example.vue'
-import MockWXTemplate from './views/MockWXTemplate.vue'
-import TestVueLoader from './views/TestVueLoader.vue'
-// import LessDemo from './views/LessDemo/LessDemo.vue'
+import Example from './views/Example'
+import MockWXTemplate from './views/MockWXTemplate'
+import TestVueLoader from './views/TestVueLoader'
+import LessDemo from './views/LessDemo/LessDemo'
 
 Vue.use(Router)
 
@@ -28,7 +28,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import(/* webpackChunkName: "about" */ './views/About')
     },
     {
       path: '/mock-wx-template',
@@ -40,10 +40,10 @@ export default new Router({
       name: 'test-vue-loader',
       component: TestVueLoader
     },
-    // {
-    //   path: '/less-demo',
-    //   name: 'less-demo',
-    //   component: LessDemo
-    // }
+    {
+      path: '/less-demo',
+      name: 'less-demo',
+      component: LessDemo
+    }
   ]
 })

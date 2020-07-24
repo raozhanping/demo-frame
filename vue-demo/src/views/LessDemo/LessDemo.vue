@@ -5,14 +5,11 @@
 
 export default {
   name: 'example',
-  components: {
-  },
+  components: {},
   data() {},
-  methods: {
-
-  },
+  methods: {},
   computed: {}
 }
 </script>
 
-<style src="./LessDemo.css" lang="less"></style>
+<style src="./LessDemo.css" ></style>

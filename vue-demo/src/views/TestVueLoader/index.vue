@@ -1,6 +1,6 @@
 <template>
 <section class="test-view-loader">
-  <div poster="../assets/audio.mp3">TestVueLoader</div>
+  <div poster="../../assets/audio.mp3">TestVueLoader</div>
 </section>
 </template>
 

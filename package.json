@@ -5,13 +5,6 @@
   "description": "to show more demo",
   "main": "index.js",
   "license": "MIT",
-  "workspaces": [
-    "packages/*",
-    "web-speech-ai",
-    "mock-wx-template",
-    "react-demo",
-    "vue-demo"
-  ],
   "scripts": {
     "demo:vue": "lerna exec npm run serve --scope=vue-demo",
     "demo:react": "lerna exec npm run serve --scope=react-demo"

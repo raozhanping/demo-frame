@@ -1,9 +1,9 @@
 <template>
   <main class="mock-wx-template" ref="ddd">
     <script type="text/x-template" ref="custome-name" id="custome-name">
-      `<span>自定义模板</span>
-      <span>自定义模板...</span>`
-      {{data.number}}
+  `<span>自定义模板</span>
+  <span>自定义模板...</span>`
+  {{data.number}}
     </script>
     <section>
       <button class="btn" @click="addField">增加data字段</button>
@@ -13,11 +13,24 @@
       <button class="btn" @click="data.number++">number++数据</button>
       <button class="btn" @click="data.number--">number--数据</button>
       <button class="btn" @click="showwww">show www</button>
-      <p><code>{{JSON.stringify(data, null, 2)}}</code></p>
-      </section>
-    <textarea name="se-template" id="se-template" cols="50" rows="10" v-model="seTemplate.seTemplate"></textarea>
+      <p>
+        <code>{{JSON.stringify(data, null, 2)}}</code>
+      </p>
+    </section>
+    <textarea
+      name="se-template"
+      id="se-template"
+      cols="50"
+      rows="10"
+      v-model="seTemplate.seTemplate"
+    ></textarea>
 
-    <dynamic-component class="name" se-template-name="seTemplate" :se-template="seTemplate" :se-data="{...data}"></dynamic-component>
+    <dynamic-component
+      class="name"
+      se-template-name="seTemplate"
+      :se-template="seTemplate"
+      :se-data="{...data}"
+    ></dynamic-component>
   </main>
 </template>
 <script>
@@ -48,11 +61,15 @@ export default {
       data: {
         number: 1,
         string: '1',
-        list: '1'.repeat(1).split('').map((_, index) => index),
+        list: '1'
+          .repeat(1)
+          .split('')
+          .map((_, index) => index),
         object: {
-          a: 1,
+          a: 1
         },
-        toDelField: null
+        toDelField: null,
+        www: ''
       },
       seTemplate
     }
@@ -77,15 +94,15 @@ export default {
       console.log('del')
       this.$delete(this.data, 'toDelField')
     },
-    findField: function () {
+    findField: function() {
       console.log('find')
     },
-    updateData: function () {
+    updateData: function() {
       console.log('update')
       this.data.a = 4
     },
     pushList() {
-      this.data.list.push(Math.floor((Math.random()*10)))
+      this.data.list.push(Math.floor(Math.random() * 10))
     },
     popList() {
       this.data.list.pop()
