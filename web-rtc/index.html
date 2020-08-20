@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Hello!</title>
+
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- import the webpage's javascript file -->
+  <script src="/index.js" defer></script>
+</head>
+
+<body>
+  <h1>WebRTC RTCDataChannel</h1>
+  <button id="connectButton" name="connectButton" class="buttonleft">
+    Connect
+  </button>
+  <button id="disconnectButton" name="disconnectButton" class="buttonright" disabled>
+    Disconnect
+  </button>
+  <hr />
+  <div class="messagebox">
+    <label for="message">Enter a message: </label>
+    <input type="text" name="message" id="message" placeholder="Message Text" inputmode="latin" size="60"
+      maxlength="120" disabled />
+    <button id="sendButton" name="sendButton" class="buttonright" disabled>
+      Send
+    </button>
+  </div>
+  <hr />
+  <div classs="messagebox" id="receivebox">
+    <p>
+      Messages received:
+    </p>
+  </div>
+</body>
+
+</html>
