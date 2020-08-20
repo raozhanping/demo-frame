@@ -42,9 +42,13 @@ function connectPeers() {
 
   // Set up the ICE candidates for the two peers
 
-  localConnection.onicecandidate = e => !e.candidate || remoteConnection.addIceCandidate(e.candidate).catch(handleAddCandidateError)
+  localConnection.onicecandidate = e =>
+    !e.candidate ||
+    remoteConnection.addIceCandidate(e.candidate).catch(handleAddCandidateError)
 
-  remoteConnection.onicecandidate = e => !e.candidate || localConnection.addIceCandidate(e.candidate).catch(handleAddCandidateError)
+  remoteConnection.onicecandidate = e =>
+    !e.candidate ||
+    localConnection.addIceCandidate(e.candidate).catch(handleAddCandidateError)
 
   // Now create an offer to connect; this stars the process
 
