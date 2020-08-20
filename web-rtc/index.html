@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <base href="web-rtc/">
   <title>Hello!</title>
 
   <!-- import the webpage's stylesheet -->
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
 
   <!-- import the webpage's javascript file -->
-  <script src="/index.js" defer></script>
+  <script src="index.js" defer></script>
 </head>
 
 <body>
@@ -23,7 +23,6 @@
   <button id="disconnectButton" name="disconnectButton" class="buttonright" disabled>
     Disconnect
   </button>
-  <hr />
   <div class="messagebox">
     <label for="message">Enter a message: </label>
     <input type="text" name="message" id="message" placeholder="Message Text" inputmode="latin" size="60"
@@ -32,7 +31,6 @@
       Send
     </button>
   </div>
-  <hr />
   <div classs="messagebox" id="receivebox">
     <p>
       Messages received:
