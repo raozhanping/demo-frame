@@ -10,6 +10,10 @@
     "demo:react": "lerna exec npm run serve --scope=react-demo"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "10.1.0",
+    "create-react-app": "^3.1.1",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-standard": "^14.1.0",
@@ -21,13 +25,10 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "lerna": "^3.16.4",
     "prettier": "^1.19.1",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/core": "^7.5.5",
-    "create-react-app": "^3.1.1",
     "serve": "^11.2.0",
-    "babel-eslint": "10.1.0",
-    "lerna": "^3.16.4"
+    "ts-node": "^9.0.0"
   },
   "dependencies": {
     "less": "^3.10.3",
