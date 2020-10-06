@@ -5,6 +5,6 @@
   "author": "zhanping",
   "license": "MIT",
   "dependencies": {
-    "electron": "^8.2.3"
+    "electron": "^8.5.2"
   }
 }
